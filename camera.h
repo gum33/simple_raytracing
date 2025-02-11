@@ -51,14 +51,13 @@ class camera {
 
         pixel_samples_scale = 1.0 / samples_per_pixel;
 
-        center = point3(0, 0, 0);
+        center = lookfrom;
 
         // Determine viewport dimensions.
         auto focal_length = (lookfrom - lookat).length();
         auto theta = degrees_to_radians(vfov);
         auto h = std::tan(theta/2);
         auto viewport_height = 2 * h * focal_length;
-        auto viewport_height = 2.0;
         auto viewport_width = viewport_height * (double(image_width)/image_height);
 
         w = unit_vector(lookfrom - lookat);
